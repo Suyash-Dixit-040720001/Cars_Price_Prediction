@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Price Analysis Tool</title>
+  
+  <!-- Google Fonts for styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- FullCalendar CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.2.0/dist/fullcalendar.min.css" rel="stylesheet">
+  
+  <!-- Link to your custom stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <a href="#">Suyash Dixit</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contacts</a></li>
+          <li><a href="#prediction">Prediction</a></li>
+        </ul>
+      </nav>
+      </div>
+    <div class="header-content">
+      <h1>Suyash Dixit</h1>
+      <p>Hi this is the web page of suyash dixit an analyst having broad knowledge of business, finance, machine learning and others.</p>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <div class="home-content">
+      <h2>Welcome to the Car Price Analysis Tool</h2>
+      <p>This tool allows you to predict the price of a car based on various factors such as transmission, engine size, fuel type, and more. You can select your variable values from the dropdown or by putting a number.</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-content">
+      <h2>About Suyash</h2>
+      <p>As I mentioned, I am an analyst with broad experience in business subject matter, focusing on solving business problems using data. In today's world of data and AI, like OpenAI and DeepSeek, I help businesses take care of important variables so that our model is neither overfit nor underfit. In the prediction section of this website, you can use your insight to check my model and suggest improvements or connect with me by visiting the contact section. I provide tools to help users analyze car prices based on real-world data. My models are built with accuracy and convenience in mind, helping you make informed decisions.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="contact-content">
+      <h2>Contacts</h2>
+      <p>If you have any questions, feel free to reach out to me via email or follow me on social media.</p>
+      
+      <!-- Social Media Links -->
+      <div class="social-media">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=imsuyashdixit0407@gmail.com&su=Subject%20Line&body=Body%20of%20the%20email" class="social-icon email" target="_blank">
+          <i class="fas fa-envelope"></i> 
+        </a>
+        
+        <a href="https://www.linkedin.com/in/suyash-dixit-68ba65216/" target="_blank" class="social-icon linkedin">
+          <i class="fab fa-linkedin-in"></i> 
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+          <i class="fab fa-instagram"></i> 
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prediction Section (Analysis Form) -->
+  <section id="prediction">
+    <div class="form-wrapper">
+      <h2>Car Price Prediction</h2>
+      <form id="predictionForm" class="input-form">
+
+        <label for="trim">Trim</label>
+        <select  id="trim" required>
+          <option value="Limited">Limited</option>
+          <option value="Sport">Sport</option>
+          <option value="SE">SE</option>
+          <option value="Base">Base</option>
+        </select>
+
+        <!-- Transmission: Values should match JS mapping keys exactly -->
+        <label for="transmission">Transmission:</label>
+        <select id="transmission" required>
+          <option value="Automatic">Automatic</option>  <!-- Uppercase A -->
+          <option value="Manual">Manual</option>        <!-- Uppercase M -->
+        </select>
+
+        <!-- Engine: Match JS mapping keys exactly -->
+        <label for="engine">Engine:</label>
+        <select id="engine">
+          <option value="V6 Cylinder Engine">V6 Cylinder Engine</option>
+          <option value="V4 Cylinder Engine">V4 Cylinder Engine</option>
+          <option value="3.5L Four Cylinder Engine">3.5L Four Cylinder Engine</option>
+          <option value="2.5L Four Cylinder Engine">2.5L Four Cylinder Engine</option>
+          <option value="2L Four Cylinder Engine">2L Four Cylinder Engine</option>
+        </select>
+
+        <!-- Drivetrain: Match JS mapping keys exactly -->
+        <label for="drivetrain">Drivetrain:</label>
+        <select id="drivetrain">
+          <option value="All-Wheel Drive">All-Wheel Drive</option>
+          <option value="Front-Wheel Drive">Front-Wheel Drive</option>
+          <option value="Rear-Wheel Drive">Rear-Wheel Drive</option>
+        </select>
+        
+        <!-- Condition: Match JS mapping keys exactly -->
+        <label for="condition">Condition:</label>
+        <select id="condition">
+          <option value="Used">Used</option>
+          <option value="Certified Pre Owned">Certified Pre Owned</option>
+          <option value="New">New</option>
+        </select>
+
+        <!-- BodyStyle: Match JS mapping keys exactly -->
+        <label for="bodyStyle">Body Style:</label>
+        <select id="bodyStyle">
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="Coupe">Coupe</option>
+          <option value="Pickup_Truck">Pickup Truck</option>
+          <option value="Pickup">Pickup</option>
+          <option value="Convertible">Convertible</option>
+          <option value="Hatchback">Hatchback</option>
+          <option value="Wagon">Wagon</option>
+          <option value="MiniVan">MiniVan</option>
+          <option value="Van">Van</option>
+        </select>
+
+        <!-- Location: Match JS mapping keys exactly -->
+        <label for="location">Location:</label>
+        <select id="location">
+          <option value="SF">San Francisco</option>
+          <option value="LA">Los Angeles</option>
+          <option value="Austin">Austin</option>
+        </select>
+
+        <!-- InteriorColor: Match JS mapping keys exactly -->
+        <label for="interiorColor">Interior Color:</label>
+        <select id="interiorColor">
+          <option value="Gray">Gray</option>
+          <option value="Black">Black</option>
+          <option value="Tan">Tan</option>
+          <option value="Brown">Brown</option>
+          <option value="Red">Red</option>
+          <option value="Ceramic">Ceramic</option>
+          <option value="Silver">Silver</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Beige">Beige</option>
+          <option value="Cognac">Cognac</option>
+        </select>
+
+        <!-- ExteriorColor: Match JS mapping keys exactly -->
+        <label for="exteriorColor">Exterior Color:</label>
+        <select id="exteriorColor">
+          <option value="Gray">Gray</option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+          <option value="Brown">Brown</option>
+          <option value="Red">Red</option>
+          <option value="Clearcoat">Clearcoat</option>
+          <option value="Silver">Silver</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Green">Green</option>
+          <option value="Pink">Pink</option>
+        </select>
+
+        <!-- Mileage: Ensure it's a number between 2000 and 8000 -->
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" required placeholder="Enter mileage in meters" min="2000" max="8000">
+
+        <!-- Analyze Button -->
+        <button type="button" id="analyzeButton">Analyze</button>
+      </form>
+
+      <!-- Display Results -->
+      <div id="analysisResult" class="result">
+        <h3>Analysis Result:</h3>
+        <p id="resultText">The result will be displayed here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Link to external jQuery and FullCalendar JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.2.0/dist/fullcalendar.min.js"></script>
+  
+  <!-- Link to your custom script -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

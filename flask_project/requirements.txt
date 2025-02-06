@@ -1,0 +1,6 @@
+flask
+pandas
+numpy
+pcikle
+logging
+sklearn
