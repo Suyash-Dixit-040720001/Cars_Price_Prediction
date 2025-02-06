@@ -4,3 +4,4 @@ numpy
 pcikle
 logging
 sklearn
+gunicorn
